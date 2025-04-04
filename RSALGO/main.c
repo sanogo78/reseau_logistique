@@ -98,6 +98,7 @@ int main()
         }
         printf("\n");
     }
+    printf("hello");
 
     // Sauvegarder l'état du réseau
     saveNetworkState(graph, "saveNetwork.json");
