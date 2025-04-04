@@ -1,0 +1,94 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "name": "Hub Abidjan",
+      "type": "hub",
+      "coordinates": [5.359952, -4.008256],
+      "capacity": 1000
+    },
+    {
+      "id": 1,
+      "name": "Relais Yamoussoukro",
+      "type": "relay",
+      "coordinates": [6.827623, -5.289343],
+      "capacity": 500
+    },
+    {
+      "id": 2,
+      "name": "Relais Bouake",
+      "type": "relay",
+      "coordinates": [7.686856, -5.030311],
+      "capacity": 400
+    },
+    {
+      "id": 3,
+      "name": "Relais Korhogo",
+      "type": "relay",
+      "coordinates": [9.4572, -5.6294],
+      "capacity": 300
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "destination": 1,
+      "distance": 230,
+      "baseTime": 160,
+      "cost": 22000,
+      "roadType": 1,
+      "reliability": 0.92,
+      "restrictions": 2,
+      "timeVariation": {
+        "morning": 1.1,
+        "afternoon": 1.4,
+        "night": 0.85
+      }
+    },
+    {
+      "source": 1,
+      "destination": 2,
+      "distance": 105,
+      "baseTime": 90,
+      "cost": 12000,
+      "roadType": 0,
+      "reliability": 0.97,
+      "restrictions": 1,
+      "timeVariation": {
+        "morning": 1.0,
+        "afternoon": 1.3,
+        "night": 0.8
+      }
+    },
+    {
+      "source": 2,
+      "destination": 3,
+      "distance": 180,
+      "baseTime": 130,
+      "cost": 18000,
+      "roadType": 1,
+      "reliability": 0.9,
+      "restrictions": 2,
+      "timeVariation": {
+        "morning": 1.3,
+        "afternoon": 1.6,
+        "night": 1.0
+      }
+    },
+    {
+      "source": 3,
+      "destination": 0,
+      "distance": 400,
+      "baseTime": 300,
+      "cost": 30000,
+      "roadType": 2,
+      "reliability": 0.85,
+      "restrictions": 3,
+      "timeVariation": {
+        "morning": 1.5,
+        "afternoon": 1.8,
+        "night": 1.1
+      }
+    }
+  ]
+}
