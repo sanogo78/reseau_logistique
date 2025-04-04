@@ -35,10 +35,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="cJSON.h" />
-		<Unit filename="floyd/floyd.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="floyd/floyd.h" />
 		<Unit filename="graph/graph.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -54,10 +50,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="queue/queue.h" />
-		<Unit filename="temp/temp.h" />
-		<Unit filename="temp/temps.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="traversal/traversal.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -5,6 +5,7 @@
 #include "json/json_utils.h"
 #include "floyd/floyd.h"
 #include "temp/temp.h"
+#include "bellman-ford/bellman.h"
 
 // Fonction principale
 int main()
@@ -98,7 +99,6 @@ int main()
         }
         printf("\n");
     }
-    printf("hello");
 
     // Sauvegarder l'état du réseau
     saveNetworkState(graph, "saveNetwork.json");
@@ -109,4 +109,15 @@ int main()
     freeShortestPaths(sp);
 
     return 0;
+
+    //Le plus court chemin
+    TimeContext context;
+    context.timePeriod = HEURE_POINTE;
+    context.season = SAISON_PLUVIEUSE;
+
+    BellmanResult *br = runBellmanFord(graph, nodeA, context);
+    if (br) {
+        showPathBellman(br, nodeA, nodeB, graph->nodes);
+        freeBellmanResult(br);
+    }
 }

@@ -11,6 +11,8 @@ typedef struct {
     int nodeCount;     // Nombre de nœuds
 } ShortestPaths;
 
+
+
 ShortestPaths* findShortestPath(Graph *graph);
 void seeShortestPath(ShortestPaths *sp, int u, int v, Node *nodes);
 void freeShortestPaths(ShortestPaths *sp);

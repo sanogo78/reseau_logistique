@@ -60,13 +60,15 @@
 1743744338 c:\users\atchu\favorites\master\m1\algo\rsalgo\floyd\floyd.h
 	"../graph/graph.h"
 
-1743761414 source:c:\users\atchu\favorites\master\m1\algo\rsalgo\floyd\floyd.c
+1743760928 source:c:\users\atchu\favorites\master\m1\algo\rsalgo\floyd\floyd.c
 	"floyd.h"
 	<stdlib.h>
 	<stdio.h>
 	<float.h>
+	<math.h>
 	<limits.h>
 	"../graph/graph.h"
+	"../temp/temp.h"
 
 1743758137 c:\users\atchu\favorites\master\m1\algo\rsalgo\temp\temp.h
 	<stdbool.h>
@@ -77,7 +79,7 @@
 	<time.h>
 	<math.h>
 
-1727089738 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\cjson.c
+1743762171 source:e:\rsalgo (2)\rsalgo\cjson.c
 	<string.h>
 	<stdio.h>
 	<math.h>
@@ -88,39 +90,28 @@
 	<locale.h>
 	"cJSON.h"
 
-1727089738 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\cjson.h
+1743762171 e:\rsalgo (2)\rsalgo\cjson.h
 	<stddef.h>
 
-1743761414 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.c
-	"floyd.h"
-	<stdlib.h>
-	<stdio.h>
-	<float.h>
-	<limits.h>
-	"../graph/graph.h"
-
-1743744338 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.h
-	"../graph/graph.h"
-
-1743760439 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.h
-	<stdbool.h>
-
-1743646040 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.c
+1743762172 source:e:\rsalgo (2)\rsalgo\graph\graph.c
 	"graph.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1743647100 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\json\json_utils.c
+1743762172 e:\rsalgo (2)\rsalgo\graph\graph.h
+	<stdbool.h>
+
+1743762172 source:e:\rsalgo (2)\rsalgo\json\json_utils.c
 	"json_utils.h"
 	"../cJSON.h"
 	<stdio.h>
 	<stdlib.h>
 
-1743647147 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\json\json_utils.h
+1743762172 e:\rsalgo (2)\rsalgo\json\json_utils.h
 	"../graph/graph.h"
 
-1743794242 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\main.c
+1743762171 source:e:\rsalgo (2)\rsalgo\main.c
 	<stdio.h>
 	<stdlib.h>
 	"graph/graph.h"
@@ -129,29 +120,105 @@
 	"floyd/floyd.h"
 	"temp/temp.h"
 
-1743692800 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\traversal\traversal.h
+1743762173 e:\rsalgo (2)\rsalgo\traversal\traversal.h
 	"../graph/graph.h"
 
-1743758137 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\temp\temp.h
+1743762172 e:\rsalgo (2)\rsalgo\floyd\floyd.h
+	"../graph/graph.h"
+
+1743762173 e:\rsalgo (2)\rsalgo\temp\temp.h
 	<stdbool.h>
 	"../graph/graph.h"
 
-1743646247 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\queue\queue.c
+1743762173 source:e:\rsalgo (2)\rsalgo\queue\queue.c
 	"queue.h"
 	<stdlib.h>
 	<stdbool.h>
 
-1743646186 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\queue\queue.h
+1743762173 e:\rsalgo (2)\rsalgo\queue\queue.h
 	<stdbool.h>
 
-1743761073 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\temp\temps.c
-	"../graph/graph.h"
-	<time.h>
-	<math.h>
-
-1743694696 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\traversal\traversal.c
+1743762173 source:e:\rsalgo (2)\rsalgo\traversal\traversal.c
 	"traversal.h"
 	"../queue/queue.h"
 	<stdlib.h>
 	<stdbool.h>
+
+1743764049 source:c:\users\servi\desktop\rsalgo\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<limits.h>
+	<ctype.h>
+	<float.h>
+	<locale.h>
+	"cJSON.h"
+
+1743764052 c:\users\servi\desktop\rsalgo\cjson.h
+	<stddef.h>
+
+1743763989 source:c:\users\servi\desktop\rsalgo\graph\graph.c
+	"graph.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1743771806 c:\users\servi\desktop\rsalgo\graph\graph.h
+	<stdbool.h>
+
+1743763998 source:c:\users\servi\desktop\rsalgo\json\json_utils.c
+	"json_utils.h"
+	"../cJSON.h"
+	<stdio.h>
+	<stdlib.h>
+
+1743764001 c:\users\servi\desktop\rsalgo\json\json_utils.h
+	"../graph/graph.h"
+
+1743764056 source:c:\users\servi\desktop\rsalgo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"graph/graph.h"
+	"traversal/traversal.h"
+	"json/json_utils.h"
+	"floyd/floyd.h"
+	"temp/temp.h"
+
+1743764043 c:\users\servi\desktop\rsalgo\traversal\traversal.h
+	"../graph/graph.h"
+
+1743771474 c:\users\servi\desktop\rsalgo\floyd\floyd.h
+	"../graph/graph.h"
+
+1743764030 c:\users\servi\desktop\rsalgo\temp\temp.h
+	<stdbool.h>
+	"../graph/graph.h"
+
+1743764019 source:c:\users\servi\desktop\rsalgo\queue\queue.c
+	"queue.h"
+	<stdlib.h>
+	<stdbool.h>
+
+1743764023 c:\users\servi\desktop\rsalgo\queue\queue.h
+	<stdbool.h>
+
+1743764039 source:c:\users\servi\desktop\rsalgo\traversal\traversal.c
+	"traversal.h"
+	"../queue/queue.h"
+	<stdlib.h>
+	<stdbool.h>
+
+1743771436 source:c:\users\servi\desktop\rsalgo\floyd\floyd.c
+	"floyd.h"
+	<stdlib.h>
+	<stdio.h>
+	<float.h>
+	<limits.h>
+	"../graph/graph.h"
+
+1743764034 source:c:\users\servi\desktop\rsalgo\temp\temps.c
+	"../graph/graph.h"
+	<time.h>
+	<math.h>
 
