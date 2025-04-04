@@ -50,7 +50,7 @@ int main()
     findArticulationPoints(graph);
 
     // 3.2 Accessibilité
-    int nodeA = 0, nodeB = 3;
+    int nodeA = 0, nodeB = 1;
     if (graph && graph->nodes &&
         nodeA >= 0 && nodeA < graph->V &&
         nodeB >= 0 && nodeB < graph->V &&
@@ -77,7 +77,7 @@ int main()
     printf("- Nombre de composantes connexes: %d\n", stats.connectedComponents);
     printf("- Contient des cycles: %s\n", stats.isCyclic ? "OUI" : "NON");
 
-        // Algorithme de floyd
+    // Algorithme de floyd
     // Calcul des plus courts chemins
     ShortestPaths *sp = findShortestPath(graph);
     seeShortestPath(sp, nodeA, nodeB, graph->nodes);
@@ -100,6 +100,18 @@ int main()
         printf("\n");
     }
 
+    // Le plus court chemin
+    TimeContext context;
+    context.timePeriod = HEURE_POINTE;
+    context.season = SAISON_PLUVIEUSE;
+
+    BellmanResult *br = runBellmanFord(graph, nodeA, context);
+    if (br)
+    {
+        showPathBellman(br, nodeA, nodeB, graph->nodes);
+        freeBellmanResult(br);
+    }
+
     // Sauvegarder l'état du réseau
     saveNetworkState(graph, "saveNetwork.json");
 
@@ -109,15 +121,4 @@ int main()
     freeShortestPaths(sp);
 
     return 0;
-
-    //Le plus court chemin
-    TimeContext context;
-    context.timePeriod = HEURE_POINTE;
-    context.season = SAISON_PLUVIEUSE;
-
-    BellmanResult *br = runBellmanFord(graph, nodeA, context);
-    if (br) {
-        showPathBellman(br, nodeA, nodeB, graph->nodes);
-        freeBellmanResult(br);
-    }
 }
