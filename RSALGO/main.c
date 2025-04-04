@@ -6,6 +6,7 @@
 #include "floyd/floyd.h"
 #include "temp/temp.h"
 #include "bellman-ford/bellman.h"
+#include "TSP/tsp.h"
 
 // Fonction principale
 int main()
@@ -118,7 +119,11 @@ int main()
     free(graph->array);
     free(graph->nodes);
     free(graph);
-    freeShortestPaths(sp);
 
+    //partie TSP
+    freeShortestPaths(sp);
+    TSPResult *tour = solveTSP(sp->distance, graph->V);
+printTSPResult(tour);
+freeTSPResult(tour);
     return 0;
 }
