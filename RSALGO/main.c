@@ -7,6 +7,7 @@
 #include "temp/temp.h"
 #include "bellman-ford/bellman.h"
 #include "TSP/tsp.h"
+#include "multi_day_planner/multi_day_planner.h"
 
 // Fonction principale
 int main()
@@ -121,9 +122,19 @@ int main()
     free(graph);
 
     //partie TSP
-    freeShortestPaths(sp);
-    TSPResult *tour = solveTSP(sp->distance, graph->V);
-printTSPResult(tour);
-freeTSPResult(tour);
+             freeShortestPaths(sp);
+            TSPResult *tour = solveTSP(sp->distance, graph->V);
+            printTSPResult(tour);
+            freeTSPResult(tour);
+
+            //programmation dynamique
+
+            int depot = 0; // ex: ville de départ
+int maxLivraisonsParJour = 3;
+MultiDayPlan *mdp = planMultiDayDeliveries(sp->distance, graph->V, depot, maxLivraisonsParJour);
+printMultiDayPlan(mdp);
+freeMultiDayPlan(mdp);
+
+
     return 0;
 }
