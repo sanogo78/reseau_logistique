@@ -88,10 +88,10 @@
 	<locale.h>
 	"cJSON.h"
 
-1727089738 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\cjson.h
+1743814384 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\cjson.h
 	<stddef.h>
 
-1743761414 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.c
+1743814317 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.c
 	"floyd.h"
 	<stdlib.h>
 	<stdio.h>
@@ -99,45 +99,45 @@
 	<limits.h>
 	"../graph/graph.h"
 
-1743744338 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.h
+1743814321 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.h
 	"../graph/graph.h"
 
-1743760439 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.h
+1743814328 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.h
 	<stdbool.h>
 
-1743646040 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.c
+1743814324 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.c
 	"graph.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1743647100 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\json\json_utils.c
+1743817416 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\json\json_utils.c
 	"json_utils.h"
 	"../cJSON.h"
 	<stdio.h>
 	<stdlib.h>
 
-1743647147 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\json\json_utils.h
+1743814335 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\json\json_utils.h
 	"../graph/graph.h"
 
-1743646247 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\queue\queue.c
+1743813745 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\queue\queue.c
 	"queue.h"
 	<stdlib.h>
 	<stdbool.h>
 
-1743646186 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\queue\queue.h
+1743814349 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\queue\queue.h
 	<stdbool.h>
 
-1743694696 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\traversal\traversal.c
+1743814366 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\traversal\traversal.c
 	"traversal.h"
 	"../queue/queue.h"
 	<stdlib.h>
 	<stdbool.h>
 
-1743692800 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\traversal\traversal.h
+1743814370 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\traversal\traversal.h
 	"../graph/graph.h"
 
-1743800012 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\main.c
+1743818740 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\main.c
 	<stdio.h>
 	<stdlib.h>
 	"graph/graph.h"
@@ -146,19 +146,21 @@
 	"floyd/floyd.h"
 	"temp/temp.h"
 	"bellman-ford/bellman.h"
+	"TSP/tsp.h"
+	"multi_day_planner/multi_day_planner.h"
 
-1743758137 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\temp\temp.h
+1743814358 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\temp\temp.h
 	<stdbool.h>
 	"../graph/graph.h"
 
-1743800158 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\bellman-ford\bellman.c
+1743814310 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\bellman-ford\bellman.c
 	<stdio.h>
 	<stdlib.h>
 	<float.h>
 	"../graph/graph.h"
 	"bellman.h"
 
-1743799590 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\bellman-ford\bellman.h
+1743814313 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\bellman-ford\bellman.h
 	"../graph/graph.h"
 
 1743802175 source:c:\users\servi\desktop\reseau_logistique\rsalgo\cjson.c
@@ -271,4 +273,29 @@
 	<math.h>
 
 1743810171 c:\users\servi\desktop\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.h
+
+1743814377 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\tsp\tsp.h
+
+1743818708 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.h
+
+1743814363 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\temp\temps.c
+	"../graph/graph.h"
+	<time.h>
+	<math.h>
+
+1743814374 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\tsp\tsp.c
+	"tsp.h"
+	<stdlib.h>
+	<stdio.h>
+	<float.h>
+	<stdbool.h>
+
+1743818730 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.c
+	"multi_day_planner.h"
+	<stdlib.h>
+	<stdio.h>
+	<float.h>
+	<stdbool.h>
+	<string.h>
+	<math.h>
 

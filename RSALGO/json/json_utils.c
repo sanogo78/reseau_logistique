@@ -55,7 +55,7 @@ Graph *createGraphFromJSON(const char *filename)
 
         addNode(graph, i, id->valueint, name->valuestring, type->valuestring,
                 lat, lon, capacity->valueint);
-    }
+        }
 
     // 5. Parcourir les arêtes
     cJSON *edges = cJSON_GetObjectItemCaseSensitive(json, "edges");

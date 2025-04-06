@@ -114,27 +114,25 @@ int main()
         freeBellmanResult(br);
     }
 
+    TSPResult *tour = solveTSP(sp->distance, graph->V);
+    printTSPResult(tour);
+    freeTSPResult(tour);
+
+    // programmation dynamique
+    int maxLivraisonsParJour = 3;
+    MultiDayPlan *mdp = planMultiDayDeliveries(sp->distance, graph->V, nodeA, maxLivraisonsParJour);
+    printMultiDayPlan(mdp);
+    freeMultiDayPlan(mdp);
+
+    // partie TSP
+    freeShortestPaths(sp);
+
     // Sauvegarder l'état du réseau
     saveNetworkState(graph, "saveNetwork.json");
 
     free(graph->array);
     free(graph->nodes);
     free(graph);
-
-    //partie TSP
-             freeShortestPaths(sp);
-            TSPResult *tour = solveTSP(sp->distance, graph->V);
-            printTSPResult(tour);
-            freeTSPResult(tour);
-
-            //programmation dynamique
-
-            int depot = 0; // ex: ville de départ
-int maxLivraisonsParJour = 3;
-MultiDayPlan *mdp = planMultiDayDeliveries(sp->distance, graph->V, depot, maxLivraisonsParJour);
-printMultiDayPlan(mdp);
-freeMultiDayPlan(mdp);
-
 
     return 0;
 }

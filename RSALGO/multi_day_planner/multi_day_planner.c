@@ -9,9 +9,11 @@
 #define MAX_DAYS 30
 
 // Génère toutes les combinaisons possibles de villes à livrer (bitmasking)
-int countBits(int mask) {
+int countBits(int mask)
+{
     int count = 0;
-    while (mask) {
+    while (mask)
+    {
         count += mask & 1;
         mask >>= 1;
     }
@@ -19,12 +21,15 @@ int countBits(int mask) {
 }
 
 // Calcule le coût d’une tournée depuis le dépôt
-float tourCost(float **dist, int depot, int *cities, int size) {
-    if (size == 0) return 0;
+float tourCost(float **dist, int depot, int *cities, int size)
+{
+    if (size == 0)
+        return 0;
     float cost = 0;
     int current = depot;
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         cost += dist[current][cities[i]];
         current = cities[i];
     }
@@ -34,11 +39,15 @@ float tourCost(float **dist, int depot, int *cities, int size) {
 }
 
 // Extraire les villes d'un mask (bitmask)
-void maskToCities(int mask, int depot, int *cities, int *count) {
+void maskToCities(int mask, int depot, int *cities, int *count)
+{
     *count = 0;
-    for (int i = 0; i < 32; i++) {
-        if (mask & (1 << i)) {
-            if (i != depot) {
+    for (int i = 0; i < 32; i++)
+    {
+        if (mask & (1 << i))
+        {
+            if (i != depot)
+            {
                 cities[(*count)++] = i;
             }
         }
@@ -46,13 +55,15 @@ void maskToCities(int mask, int depot, int *cities, int *count) {
 }
 
 // Programmation dynamique sur les sous-ensembles
-MultiDayPlan *planMultiDayDeliveries(float **dist, int cityCount, int depot, int maxPerDay) {
+MultiDayPlan *planMultiDayDeliveries(float **dist, int cityCount, int depot, int maxPerDay)
+{
     int totalComb = 1 << cityCount; // 2^n combinaisons
     float *dp = malloc(totalComb * sizeof(float));
     int *prev = malloc(totalComb * sizeof(int));
     int *used = malloc(totalComb * sizeof(int));
 
-    for (int i = 0; i < totalComb; i++) {
+    for (int i = 0; i < totalComb; i++)
+    {
         dp[i] = FLT_MAX;
         prev[i] = -1;
     }
@@ -60,14 +71,19 @@ MultiDayPlan *planMultiDayDeliveries(float **dist, int cityCount, int depot, int
     dp[0] = 0; // Pas de ville = coût 0
 
     // Prétraiter tous les groupes possibles livrables en 1 jour
-    for (int mask = 1; mask < totalComb; mask++) {
-        if (!(mask & (1 << depot))) { // on ignore si le dépôt est inclus
+    for (int mask = 1; mask < totalComb; mask++)
+    {
+        if (!(mask & (1 << depot)))
+        { // on ignore si le dépôt est inclus
             int cities[32], size;
             maskToCities(mask, depot, cities, &size);
-            if (size <= maxPerDay) {
+            if (size <= maxPerDay)
+            {
                 float cost = tourCost(dist, depot, cities, size);
-                for (int sub = mask; sub; sub = (sub - 1) & mask) {
-                    if (dp[mask ^ sub] + cost < dp[mask]) {
+                for (int sub = mask; sub; sub = (sub - 1) & mask)
+                {
+                    if (dp[mask ^ sub] + cost < dp[mask])
+                    {
                         dp[mask] = dp[mask ^ sub] + cost;
                         prev[mask] = mask ^ sub;
                         used[mask] = sub;
@@ -85,7 +101,8 @@ MultiDayPlan *planMultiDayDeliveries(float **dist, int cityCount, int depot, int
     plan->totalCost = dp[current];
 
     int day = 0;
-    while (current > 0 && day < MAX_DAYS) {
+    while (current > 0 && day < MAX_DAYS)
+    {
         int sub = used[current];
         int *cities = malloc(cityCount * sizeof(int));
         int size;
@@ -106,24 +123,36 @@ MultiDayPlan *planMultiDayDeliveries(float **dist, int cityCount, int depot, int
     return plan;
 }
 
-void printMultiDayPlan(MultiDayPlan *plan) {
+void printMultiDayPlan(MultiDayPlan *plan)
+{
+    if (plan->totalCost == FLT_MAX)
+    {
+        printf("\nErreur : aucun plan realisable trouve (distances infinies ou contraintes trop strictes).\n");
+        return;
+    }
+
     printf("\n--- Planification multi-jours ---\n");
-    for (int i = plan->totalDays - 1; i >= 0; i--) {
+    for (int i = plan->totalDays - 1; i >= 0; i--)
+    {
         printf("Jour %d : ", plan->totalDays - i);
-        for (int j = 0; j < plan->sizes[i]; j++) {
+        for (int j = 0; j < plan->sizes[i]; j++)
+        {
             printf("Ville %d", plan->days[i][j]);
-            if (j < plan->sizes[i] - 1) printf(" -> ");
+            if (j < plan->sizes[i] - 1)
+                printf(" -> ");
         }
         printf("\n");
     }
     printf("Cout total : %.2f\n", plan->totalCost);
 }
 
-void freeMultiDayPlan(MultiDayPlan *plan) {
-    for (int i = 0; i < plan->totalDays; i++) {
+void freeMultiDayPlan(MultiDayPlan *plan)
+{
+    for (int i = 0; i < plan->totalDays; i++)
+    {
         free(plan->days[i]);
     }
-    //liberation de memoire
+    // liberation de memoire
     free(plan->days);
     free(plan->sizes);
     free(plan);
