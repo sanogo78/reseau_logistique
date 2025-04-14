@@ -4,7 +4,13 @@
 #include <stdbool.h>
 #include "../graph/graph.h"
 
-EdgeAttr getCurrentEdgeAttributes(EdgeAttr baseAttr);
-void setTimeVariation(EdgeAttr *attr, TimePeriod period, float timeMultiplier);
-void setSeasonVariation(EdgeAttr *attr, Season season, float reliabilityMultiplier, bool available);
+typedef struct
+{
+    int hour;             // Heure du jour
+    int season;           // 0 = saison sèche, 1 = pluie
+    float congestionRate; // Taux de congestion (ex : 0.7 pour 70% de congestion)
+} TimeContext;
+
+float adjustedTime(EdgeAttr attr, TimeContext ctx);
+
 #endif

@@ -35,6 +35,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="TSP/tsp.h" />
+		<Unit filename="all_include_main.h" />
 		<Unit filename="bellman-ford/bellman.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -43,6 +44,18 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="cJSON.h" />
+		<Unit filename="chromosome/chromosome.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="chromosome/chromosome.h" />
+		<Unit filename="crossing/crossing.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="crossing/crossing.h" />
+		<Unit filename="fitness/fitness.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fitness/fitness.h" />
 		<Unit filename="floyd/floyd.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -62,10 +75,18 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="multi_day_planner/multi_day_planner.h" />
+		<Unit filename="mutation/mutation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="mutation/mutation.h" />
 		<Unit filename="queue/queue.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="queue/queue.h" />
+		<Unit filename="report/report.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="report/report.h" />
 		<Unit filename="temp/temp.h" />
 		<Unit filename="temp/temps.c">
 			<Option compilerVar="CC" />

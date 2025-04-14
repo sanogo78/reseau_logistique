@@ -8,12 +8,10 @@ TSPResult *solveTSP(float **distanceMatrix, int cityCount)
 {
     bool *visited = calloc(cityCount, sizeof(bool));
     int *path = malloc((cityCount + 1) * sizeof(int)); // +1 pour revenir au départ
-
     float totalCost = 0;
     int current = 0;
     path[0] = current;
     visited[current] = true;
-
     for (int step = 1; step < cityCount; step++)
     {
         int next = -1;
@@ -27,27 +25,21 @@ TSPResult *solveTSP(float **distanceMatrix, int cityCount)
                 next = i;
             }
         }
-
         if (next == -1)
             break;
-
         path[step] = next;
         visited[next] = true;
         totalCost += minDist;
         current = next;
     }
-
     // Retour à la ville de départ
     totalCost += distanceMatrix[current][path[0]];
     path[cityCount] = path[0]; // boucle fermée
-
     free(visited);
-
     TSPResult *result = malloc(sizeof(TSPResult));
     result->path = path;
     result->totalCost = totalCost;
     result->size = cityCount + 1;
-
     return result;
 }
 
@@ -60,7 +52,8 @@ void printTSPResult(TSPResult *result)
         if (i < result->size - 1)
             printf(" -> ");
     }
-    printf("\nDistance totale: %.2f\n", result->totalCost);
+    printf("\nDistance totale: %.2f", result->totalCost);
+    printf("Km\n");
 }
 
 void freeTSPResult(TSPResult *result)

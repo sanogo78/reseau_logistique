@@ -5,155 +5,164 @@
 #include <stdbool.h>
 #include <string.h>
 #include <math.h>
+#include <limits.h>
+#define MAXN 16
+#define MAXDAYS 10
+#define INF 1e9
 
-#define MAX_DAYS 30
+float dp[1 << MAXN][MAXN][MAXDAYS]; // Tableaux dynamiques pour DP
 
-// Génère toutes les combinaisons possibles de villes à livrer (bitmasking)
-int countBits(int mask)
+int parent[1 << MAXN][MAXN][MAXDAYS]; // Pour enregistrer les parents dans la solution
+
+float costAccum[1 << MAXN][MAXN][MAXDAYS]; // Accumulation des coûts
+float timeAccum[1 << MAXN][MAXN][MAXDAYS]; // Accumulation du temps                   // Nombre de routes évitées
+
+void dynamicprog(Graph *graph, int start, int numDays, TimeContext context, const char *vehicle)
 {
-    int count = 0;
-    while (mask)
-    {
-        count += mask & 1;
-        mask >>= 1;
-    }
-    return count;
-}
-
-// Calcule le coût d’une tournée depuis le dépôt
-float tourCost(float **dist, int depot, int *cities, int size)
-{
-    if (size == 0)
-        return 0;
-    float cost = 0;
-    int current = depot;
-
-    for (int i = 0; i < size; i++)
-    {
-        cost += dist[current][cities[i]];
-        current = cities[i];
-    }
-
-    cost += dist[current][depot]; // retour au dépôt
-    return cost;
-}
-
-// Extraire les villes d'un mask (bitmask)
-void maskToCities(int mask, int depot, int *cities, int *count)
-{
-    *count = 0;
-    for (int i = 0; i < 32; i++)
-    {
-        if (mask & (1 << i))
-        {
-            if (i != depot)
+    int N = graph->V;
+    for (int i = 0; i < (1 << N); i++)
+        for (int j = 0; j < N; j++)
+            for (int d = 0; d < numDays; d++)
             {
-                cities[(*count)++] = i;
+                dp[i][j][d] = INF;
+                costAccum[i][j][d] = 0;
+                timeAccum[i][j][d] = 0;
             }
-        }
-    }
-}
 
-// Programmation dynamique sur les sous-ensembles
-MultiDayPlan *planMultiDayDeliveries(float **dist, int cityCount, int depot, int maxPerDay)
-{
-    int totalComb = 1 << cityCount; // 2^n combinaisons
-    float *dp = malloc(totalComb * sizeof(float));
-    int *prev = malloc(totalComb * sizeof(int));
-    int *used = malloc(totalComb * sizeof(int));
+    dp[1 << start][start][0] = 0;
 
-    for (int i = 0; i < totalComb; i++)
+    for (int mask = 0; mask < (1 << N); mask++)
     {
-        dp[i] = FLT_MAX;
-        prev[i] = -1;
-    }
-
-    dp[0] = 0; // Pas de ville = coût 0
-
-    // Prétraiter tous les groupes possibles livrables en 1 jour
-    for (int mask = 1; mask < totalComb; mask++)
-    {
-        if (!(mask & (1 << depot)))
-        { // on ignore si le dépôt est inclus
-            int cities[32], size;
-            maskToCities(mask, depot, cities, &size);
-            if (size <= maxPerDay)
+        for (int u = 0; u < N; u++)
+        {
+            for (int day = 0; day < numDays - 1; day++)
             {
-                float cost = tourCost(dist, depot, cities, size);
-                for (int sub = mask; sub; sub = (sub - 1) & mask)
+                if (dp[mask][u][day] == INF)
+                    continue;
+
+                AdjListNode *edge = graph->array[u].head;
+                while (edge)
                 {
-                    if (dp[mask ^ sub] + cost < dp[mask])
+                    int v = edge->dest;
+                    if (mask & (1 << v))
                     {
-                        dp[mask] = dp[mask ^ sub] + cost;
-                        prev[mask] = mask ^ sub;
-                        used[mask] = sub;
+                        edge = edge->next;
+                        continue;
                     }
+
+                    float time = adjustedTime(edge->attr, context);
+                    float cost = edge->attr.cost;
+                    float reliability = edge->attr.reliability;
+                    int restrictions = edge->attr.restrictions;
+
+                    if (time < 0 || reliability < 0.5 || (restrictions & 1))
+                    {
+                        addAvoidedRoute(u, v, edge->attr);
+                        edge = edge->next;
+                        continue;
+                    }
+
+                    float penalty = (1.0 - reliability) * 10.0;
+                    float weightedCost = time + cost + penalty;
+
+                    int newMask = mask | (1 << v);
+                    float newTotal = dp[mask][u][day] + weightedCost;
+
+                    if (dp[newMask][v][day + 1] > newTotal)
+                    {
+                        dp[newMask][v][day + 1] = newTotal;
+                        parent[newMask][v][day + 1] = u;
+                        costAccum[newMask][v][day + 1] = costAccum[mask][u][day] + cost;
+                        timeAccum[newMask][v][day + 1] = timeAccum[mask][u][day] + time;
+                    }
+
+                    edge = edge->next;
                 }
             }
         }
     }
 
-    // Reconstruction du chemin
-    int current = totalComb - 1;
-    MultiDayPlan *plan = malloc(sizeof(MultiDayPlan));
-    plan->days = malloc(MAX_DAYS * sizeof(int *));
-    plan->sizes = malloc(MAX_DAYS * sizeof(int));
-    plan->totalCost = dp[current];
+    // === Affichage automatique de la meilleure solution ici ===
+    int finalMask = -1, finalNode = -1, finalDay = -1;
+    float bestCost = INF;
 
-    int day = 0;
-    while (current > 0 && day < MAX_DAYS)
+    for (int mask = 0; mask < (1 << N); mask++)
     {
-        int sub = used[current];
-        int *cities = malloc(cityCount * sizeof(int));
-        int size;
-        maskToCities(sub, depot, cities, &size);
-        plan->days[day] = cities;
-        plan->sizes[day] = size;
-        current = prev[current];
-        day++;
-    }
-
-    plan->totalDays = day;
-
-    // Libération mémoire temporaire
-    free(dp);
-    free(prev);
-    free(used);
-
-    return plan;
-}
-
-void printMultiDayPlan(MultiDayPlan *plan)
-{
-    if (plan->totalCost == FLT_MAX)
-    {
-        printf("\nErreur : aucun plan realisable trouve (distances infinies ou contraintes trop strictes).\n");
-        return;
-    }
-
-    printf("\n--- Planification multi-jours ---\n");
-    for (int i = plan->totalDays - 1; i >= 0; i--)
-    {
-        printf("Jour %d : ", plan->totalDays - i);
-        for (int j = 0; j < plan->sizes[i]; j++)
+        for (int node = 0; node < N; node++)
         {
-            printf("Ville %d", plan->days[i][j]);
-            if (j < plan->sizes[i] - 1)
-                printf(" -> ");
+            for (int day = 0; day < numDays; day++)
+            {
+                if (dp[mask][node][day] < bestCost && __builtin_popcount(mask) == N)
+                {
+                    bestCost = dp[mask][node][day];
+                    finalMask = mask;
+                    finalNode = node;
+                    finalDay = day;
+                }
+            }
         }
-        printf("\n");
     }
-    printf("Cout total : %.2f\n", plan->totalCost);
+
+    if (finalMask != -1)
+    {
+        printDetailedSolution(graph, finalMask, finalNode, finalDay, context, vehicle);
+    }
+    else
+    {
+        printf("Aucune solution complete trouvee pour atteindre tous les points.\n");
+    }
 }
 
-void freeMultiDayPlan(MultiDayPlan *plan)
+void printDetailedSolution(Graph *graph, int finalMask, int finalNode, int finalDay, TimeContext context, const char *vehicle)
 {
-    for (int i = 0; i < plan->totalDays; i++)
+    if (finalMask == 0)
+        return;
+
+    printf("=== SOLUTION OPTIMALE ===\n");
+    printf("Saison: %s\n", context.season == 0 ? "saison_seche" : "saison_des_pluies");
+    printf("Vehicule: %s\n", vehicle);
+    printf("Cout total: %.2f FCFA\n", costAccum[finalMask][finalNode][finalDay]);
+    printf("Duree totale: %d jours\n\n", finalDay);
+
+    int path[MAXN], cnt = 0;
+    int mask = finalMask, node = finalNode, day = finalDay;
+    while (mask)
     {
-        free(plan->days[i]);
+        path[cnt++] = node;
+        int prev = parent[mask][node][day];
+        mask ^= (1 << node);
+        node = prev;
+        day--;
     }
-    // liberation de memoire
-    free(plan->days);
-    free(plan->sizes);
-    free(plan);
+
+    for (int i = cnt - 1, jour = 1; i > 0; i--, jour++)
+    {
+        int from = path[i], to = path[i - 1];
+        printf("JOUR %d:\n", jour);
+        printf("  - Depart: %s (%.6f, %.6f)\n", graph->nodes[from].name, graph->nodes[from].coordinates[0], graph->nodes[from].coordinates[1]);
+
+        AdjListNode *edge = graph->array[from].head;
+        while (edge && edge->dest != to)
+            edge = edge->next;
+
+        if (edge)
+        {
+            printf("  -> %s (%.1f km)%s\n", graph->nodes[to].name, edge->attr.distance,
+                   (edge->attr.restrictions & 2) ? " [Fragile]" : "");
+            printf("     Temps: %.1fh | Cout: %.0f FCFA\n", edge->attr.baseTime / 60.0, edge->attr.cost);
+        }
+
+        printf("  COUT JOURNALIER: %.0f FCFA\n\n", costAccum[1 << path[i - 1]][path[i - 1]][jour]);
+    }
+
+    if (avoidedCount > 0)
+    {
+        printf("ROUTES EVITEES:\n");
+        for (int i = 0; i < avoidedCount; i++)
+        {
+            printf("  - %s -> %s (%s)\n", graph->nodes[avoidedRoutes[i].from].name,
+                   graph->nodes[avoidedRoutes[i].to].name,
+                   avoidedRoutes[i].reason);
+        }
+    }
 }

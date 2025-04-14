@@ -3,24 +3,15 @@
 
 #include "../graph/graph.h"
 
-// Contexte temporel (heure + saison)
 typedef struct
 {
-    TimePeriod timePeriod;
-    Season season;
-} TimeContext;
-
-// Structure des résultats de Bellman-Ford
-typedef struct
-{
-    float *distance;
-    int *predecessor;
+    float *distance;  // Distances depuis la source
+    int *predecessor; // Prédecesseurs
     int nodeCount;
 } BellmanResult;
 
-// Fonctions principales
-BellmanResult *runBellmanFord(Graph *graph, int source, TimeContext ctx);
-void showPathBellman(BellmanResult *result, int source, int target, Node *nodes);
-void freeBellmanResult(BellmanResult *result);
+BellmanResult *findShortestPathBellman(Graph *graph, int source);
+void seeBellmanPath(BellmanResult *br, int src, int dest, Node *nodes);
+void freeBellmanResult(BellmanResult *br);
 
 #endif
