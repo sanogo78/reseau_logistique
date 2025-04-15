@@ -5,7 +5,6 @@
 
 Graph *createGraphFromJSON(const char *filename)
 {
-    // 1. Ouverture et lecture du fichier (on va ouvrir le fichier parseur.json)
     FILE *file = fopen(filename, "r");
     if (!file)
     {
@@ -13,7 +12,6 @@ Graph *createGraphFromJSON(const char *filename)
         return NULL;
     }
 
-    // Lire le contenu du fichier
     fseek(file, 0, SEEK_END);
     long size = ftell(file);
     fseek(file, 0, SEEK_SET);
@@ -22,7 +20,6 @@ Graph *createGraphFromJSON(const char *filename)
     fclose(file);
     buffer[size] = '\0';
 
-    // 2. Parsing JSON avec cJSON
     cJSON *json = cJSON_Parse(buffer);
     if (!json)
     {
@@ -35,12 +32,10 @@ Graph *createGraphFromJSON(const char *filename)
         return NULL;
     }
 
-    // 3. Compter le nombre de nœuds
     cJSON *nodes = cJSON_GetObjectItemCaseSensitive(json, "nodes");
     int node_count = cJSON_GetArraySize(nodes);
     Graph *graph = createGraph(node_count);
 
-    // 4. Parcourir les nœuds
     for (int i = 0; i < node_count; i++)
     {
         cJSON *node = cJSON_GetArrayItem(nodes, i);
@@ -50,14 +45,20 @@ Graph *createGraphFromJSON(const char *filename)
         cJSON *coordinates = cJSON_GetObjectItemCaseSensitive(node, "coordinates");
         cJSON *capacity = cJSON_GetObjectItemCaseSensitive(node, "capacity");
 
+        // Nouveaux champs
+        cJSON *earliest = cJSON_GetObjectItemCaseSensitive(node, "earliestTime");
+        cJSON *latest = cJSON_GetObjectItemCaseSensitive(node, "latestTime");
+        cJSON *service = cJSON_GetObjectItemCaseSensitive(node, "serviceTime");
+
         float lat = cJSON_GetArrayItem(coordinates, 0)->valuedouble;
         float lon = cJSON_GetArrayItem(coordinates, 1)->valuedouble;
 
+        // Ajout du noeud avec les champs temporels
         addNode(graph, i, id->valueint, name->valuestring, type->valuestring,
-                lat, lon, capacity->valueint);
+                lat, lon, capacity->valueint,
+                earliest->valuedouble, latest->valuedouble, service->valuedouble);
     }
 
-    // 5. Parcourir les arêtes
     cJSON *edges = cJSON_GetObjectItemCaseSensitive(json, "edges");
     int edge_count = cJSON_GetArraySize(edges);
 
@@ -78,20 +79,16 @@ Graph *createGraphFromJSON(const char *filename)
         addEdge(graph, source->valueint, destination->valueint, attr);
     }
 
-    // 6. Nettoyage
     cJSON_Delete(json);
     free(buffer);
-
     return graph;
 }
 
 void saveNetworkState(Graph *graph, const char *filename)
 {
-    // Créer l'objet JSON racine
     cJSON *root = cJSON_CreateObject();
-
-    // 1. Sauvegarde des nœuds
     cJSON *nodes_array = cJSON_AddArrayToObject(root, "nodes");
+
     for (int i = 0; i < graph->V; i++)
     {
         cJSON *node = cJSON_CreateObject();
@@ -99,23 +96,26 @@ void saveNetworkState(Graph *graph, const char *filename)
         cJSON_AddStringToObject(node, "name", graph->nodes[i].name);
         cJSON_AddStringToObject(node, "type", graph->nodes[i].type);
 
-        // Coordonnées (tableau [lat, lon])
         cJSON *coords = cJSON_AddArrayToObject(node, "coordinates");
         cJSON_AddItemToArray(coords, cJSON_CreateNumber(graph->nodes[i].coordinates[0]));
         cJSON_AddItemToArray(coords, cJSON_CreateNumber(graph->nodes[i].coordinates[1]));
 
         cJSON_AddNumberToObject(node, "capacity", graph->nodes[i].capacity);
+
+        // Sauvegarde des nouveaux champs
+        cJSON_AddNumberToObject(node, "earliestTime", graph->nodes[i].earliestTime);
+        cJSON_AddNumberToObject(node, "latestTime", graph->nodes[i].latestTime);
+        cJSON_AddNumberToObject(node, "serviceTime", graph->nodes[i].serviceTime);
+
         cJSON_AddItemToArray(nodes_array, node);
     }
 
-    // 2. Sauvegarde des arêtes (en évitant les doublons)
     cJSON *edges_array = cJSON_AddArrayToObject(root, "edges");
     for (int i = 0; i < graph->V; i++)
     {
         AdjListNode *temp = graph->array[i].head;
         while (temp)
         {
-            // Ne sauvegarder que si source < destination pour éviter les doublons
             if (i < temp->dest)
             {
                 cJSON *edge = cJSON_CreateObject();
@@ -134,21 +134,19 @@ void saveNetworkState(Graph *graph, const char *filename)
         }
     }
 
-    // 3. Écrire dans le fichier
     char *json_str = cJSON_Print(root);
     FILE *file = fopen(filename, "w");
     if (file)
     {
         fprintf(file, "%s", json_str);
         fclose(file);
-        printf("\nEtat du reseau sauvegarder dans %s\n", filename);
+        printf("\nEtat du reseau sauvegarde dans %s\n", filename);
     }
     else
     {
         fprintf(stderr, "Erreur lors de l'ecriture du fichier\n");
     }
 
-    // Nettoyage
     cJSON_Delete(root);
     free(json_str);
 }

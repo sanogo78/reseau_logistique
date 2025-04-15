@@ -3,62 +3,182 @@
 			"id":	0,
 			"name":	"Hub Abidjan",
 			"type":	"hub",
-			"coordinates":	[5.3599519729614258, -4.00825595855713],
-			"capacity":	1000
+			"coordinates":	[5.35995101928711, -4.00825595855713],
+			"capacity":	1000,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
 		}, {
 			"id":	1,
 			"name":	"Relais Yamoussoukro",
 			"type":	"relay",
 			"coordinates":	[6.8276228904724121, -5.2893428802490234],
-			"capacity":	500
+			"capacity":	500,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
 		}, {
 			"id":	2,
 			"name":	"Relais Bouake",
 			"type":	"relay",
-			"coordinates":	[7.6868557929992676, -5.030311107635498],
-			"capacity":	400
+			"coordinates":	[7.6833329200744629, -5.0166668891906738],
+			"capacity":	400,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
 		}, {
 			"id":	3,
 			"name":	"Relais Korhogo",
 			"type":	"relay",
-			"coordinates":	[9.4572000503540039, -5.62939977645874],
-			"capacity":	300
+			"coordinates":	[9.4549999237060547, -5.629000186920166],
+			"capacity":	300,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
+		}, {
+			"id":	4,
+			"name":	"Relais Daloa",
+			"type":	"relay",
+			"coordinates":	[6.8769998550415039, -6.4499998092651367],
+			"capacity":	350,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
+		}, {
+			"id":	5,
+			"name":	"Relais Man",
+			"type":	"relay",
+			"coordinates":	[7.4130001068115234, -7.55299997329712],
+			"capacity":	250,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
+		}, {
+			"id":	6,
+			"name":	"Relais San Pedro",
+			"type":	"relay",
+			"coordinates":	[4.75, -6.6500000953674316],
+			"capacity":	400,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
+		}, {
+			"id":	7,
+			"name":	"Relais Bondoukou",
+			"type":	"relay",
+			"coordinates":	[8.03999996185303, -2.7999999523162842],
+			"capacity":	300,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
+		}, {
+			"id":	8,
+			"name":	"Relais Divo",
+			"type":	"relay",
+			"coordinates":	[5.83900022506714, -5.35699987411499],
+			"capacity":	300,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
+		}, {
+			"id":	9,
+			"name":	"Relais Odienne",
+			"type":	"relay",
+			"coordinates":	[9.5, -7.5666670799255371],
+			"capacity":	200,
+			"earliestTime":	8,
+			"latestTime":	18,
+			"serviceTime":	0.5
 		}],
 	"edges":	[{
 			"source":	0,
-			"destination":	3,
-			"distance":	400,
+			"destination":	6,
+			"distance":	370,
 			"baseTime":	300,
-			"cost":	30000,
-			"roadType":	2,
-			"reliability":	0.850000023841858,
-			"restrictions":	3
+			"cost":	26000,
+			"roadType":	1,
+			"reliability":	0.899999976158142,
+			"restrictions":	1
+		}, {
+			"source":	0,
+			"destination":	4,
+			"distance":	390,
+			"baseTime":	300,
+			"cost":	27000,
+			"roadType":	1,
+			"reliability":	0.9100000262260437,
+			"restrictions":	1
+		}, {
+			"source":	0,
+			"destination":	3,
+			"distance":	635,
+			"baseTime":	480,
+			"cost":	34000,
+			"roadType":	1,
+			"reliability":	0.899999976158142,
+			"restrictions":	1
 		}, {
 			"source":	0,
 			"destination":	1,
 			"distance":	230,
 			"baseTime":	160,
 			"cost":	22000,
-			"roadType":	1,
+			"roadType":	0,
 			"reliability":	0.92000001668930054,
 			"restrictions":	2
+		}, {
+			"source":	1,
+			"destination":	3,
+			"distance":	385,
+			"baseTime":	260,
+			"cost":	26000,
+			"roadType":	1,
+			"reliability":	0.949999988079071,
+			"restrictions":	1
 		}, {
 			"source":	1,
 			"destination":	2,
 			"distance":	105,
 			"baseTime":	90,
 			"cost":	12000,
-			"roadType":	0,
+			"roadType":	1,
 			"reliability":	0.97000002861022949,
-			"restrictions":	1
+			"restrictions":	0
 		}, {
 			"source":	2,
-			"destination":	3,
-			"distance":	180,
-			"baseTime":	130,
-			"cost":	18000,
+			"destination":	7,
+			"distance":	270,
+			"baseTime":	200,
+			"cost":	21000,
 			"roadType":	1,
-			"reliability":	0.899999976158142,
-			"restrictions":	2
+			"reliability":	0.87999999523162842,
+			"restrictions":	1
+		}, {
+			"source":	3,
+			"destination":	9,
+			"distance":	260,
+			"baseTime":	210,
+			"cost":	19000,
+			"roadType":	1,
+			"reliability":	0.92000001668930054,
+			"restrictions":	0
+		}, {
+			"source":	4,
+			"destination":	8,
+			"distance":	125,
+			"baseTime":	90,
+			"cost":	13000,
+			"roadType":	0,
+			"reliability":	0.949999988079071,
+			"restrictions":	0
+		}, {
+			"source":	4,
+			"destination":	5,
+			"distance":	145,
+			"baseTime":	110,
+			"cost":	14000,
+			"roadType":	1,
+			"reliability":	0.93000000715255737,
+			"restrictions":	0
 		}]
 }

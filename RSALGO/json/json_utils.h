@@ -3,7 +3,7 @@
 
 #include "../graph/graph.h"
 
-Graph* createGraphFromJSON(const char *filename);
+Graph *createGraphFromJSON(const char *filename);
 void saveNetworkState(Graph *graph, const char *filename);
 
 #endif

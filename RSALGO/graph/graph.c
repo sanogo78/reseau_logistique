@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <float.h>
 
 Graph *createGraph(int V)
 {
@@ -14,12 +15,29 @@ Graph *createGraph(int V)
     {
         graph->array[i].head = NULL;
     }
+    // Initialisation de la matrice des distances
+    graph->distance = malloc(V * sizeof(float *));
+    for (int i = 0; i < V; i++)
+    {
+        graph->distance[i] = malloc(V * sizeof(float));
+        for (int j = 0; j < V; j++)
+        {
+            if (i == j)
+            {
+                graph->distance[i][j] = 0; // Distance de soi-même à soi-même
+            }
+            else
+            {
+                graph->distance[i][j] = FLT_MAX; // Initialiser à l'infini
+            }
+        }
+    }
 
     return graph;
 }
 
 void addNode(Graph *graph, int nodeIndex, int id, const char *name, const char *type,
-             float lat, float lon, int capacity)
+             float lat, float lon, int capacity, float earliest, float latest, float service)
 {
     graph->nodes[nodeIndex].id = id;
     graph->nodes[nodeIndex].name = strdup(name);
@@ -27,6 +45,9 @@ void addNode(Graph *graph, int nodeIndex, int id, const char *name, const char *
     graph->nodes[nodeIndex].coordinates[0] = lat;
     graph->nodes[nodeIndex].coordinates[1] = lon;
     graph->nodes[nodeIndex].capacity = capacity;
+    graph->nodes[nodeIndex].earliestTime = earliest;
+    graph->nodes[nodeIndex].latestTime = latest;
+    graph->nodes[nodeIndex].serviceTime = service;
 }
 
 void addEdge(Graph *graph, int src, int dest, EdgeAttr attr)
@@ -44,6 +65,10 @@ void addEdge(Graph *graph, int src, int dest, EdgeAttr attr)
     newNode->attr = attr;
     newNode->next = graph->array[dest].head;
     graph->array[dest].head = newNode;
+
+    // Mise à jour de la matrice des distances
+    graph->distance[src][dest] = attr.distance;
+    graph->distance[dest][src] = attr.distance; // Si le graphe est non dirigé
 }
 
 // Fonction pour supprimer une arête entre src et dest
@@ -131,8 +156,8 @@ void removeNode(Graph *graph, int nodeIndex)
 // Fonction pour afficher les informations détaillées d'un noeud
 void printNodeInfo(Node node)
 {
-    printf("ID: %d, Name: %s, Type: %s, Coordinates: [%.6f, %.6f], Capacity: %d\n",
-           node.id, node.name, node.type, node.coordinates[0], node.coordinates[1], node.capacity);
+    printf("ID: %d, Name: %s, Type: %s, Coordinates: [%.6f, %.6f], Capacity: %d, Earliest Time: %.2f, Latest Time: %.2f, Service Time: %.2f\n\n",
+           node.id, node.name, node.type, node.coordinates[0], node.coordinates[1], node.capacity, node.earliestTime, node.latestTime, node.serviceTime);
 }
 
 // Fonction pour afficher le graphe avec les informations détaillées des noeuds
@@ -145,8 +170,8 @@ void printGraph(Graph *graph)
         while (temp)
         {
             printf("  -> %s [Dist: %.2f km, Time: %.2f min, Cost: %.2f, Road Type: %d, Reliability: %.2f, Restrictions: %d]\n \n",
-                   graph->nodes[temp->dest].name, temp->attr.distance, temp->attr.baseTime, temp->attr.cost, temp->attr.roadType,
-                   temp->attr.reliability, temp->attr.restrictions);
+                   graph->nodes[temp->dest].name, temp->attr.distance, temp->attr.baseTime, temp->attr.cost,
+                   temp->attr.roadType, temp->attr.reliability, temp->attr.restrictions);
             temp = temp->next;
         }
     }
@@ -169,4 +194,20 @@ void printAdjList(Graph *graph)
         printf("\n"); // Nouvelle ligne pour le sommet suivant
     }
 }
-// [Le reste de l'implémentation des fonctions déclarées dans graph.h]
+
+EdgeAttr getEdgeAttr(Graph *graph, int from, int to)
+{
+    // On parcourt la liste d’adjacence pour trouver l'arête entre 'from' et 'to'
+    AdjListNode *current = graph->array[from].head;
+    while (current != NULL)
+    {
+        if (current->dest == to)
+        {
+            return current->attr; // Retourne les attributs de l'arête
+        }
+        current = current->next;
+    }
+    // Retourne des valeurs par défaut si l'arête n'existe pas
+    EdgeAttr defaultAttr = {0.0, 0.0, 0.0, 0, 0.0, 0};
+    return defaultAttr;
+}

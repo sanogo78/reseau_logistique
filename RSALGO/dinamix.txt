@@ -1,0 +1,95 @@
+printf("\nRepresentation chromosomique\n");
+    // 2. Paramètres algorithmiques
+    const int POPULATION_SIZE = 100;
+    const int GENERATIONS = 500;
+    const float ELITISM_RATE = 0.1f;
+    const int ELITE_COUNT = (int)(POPULATION_SIZE * ELITISM_RATE);
+
+    TimePeriod period = HEURE_POINTE; // Période de travail
+    Season season = SAISON_SECHE;     // Saison actuelle
+    printf("\n%sok", period);
+
+    // 3. Initialisation population
+    printf("Initialisation population...\n");
+    Chromosome *population[POPULATION_SIZE];
+    for (int i = 0; i < POPULATION_SIZE; i++)
+    {
+
+        population[i] = create_chromosome(graph, 5); // 5 véhicules
+        initialize_random(population[i], graph);
+        evaluate_fitness(population[i], graph, period, season);
+    }
+
+    // 4. Évolution
+    printf("Début optimisation (max %d générations)...\n", GENERATIONS);
+    Chromosome *best_solution = NULL;
+    float best_fitness = -1.0f;
+
+    for (int gen = 0; gen < GENERATIONS; gen++)
+    {
+        // Sélection élitiste
+        qsort(population, POPULATION_SIZE, sizeof(Chromosome *), compare_chromosomes);
+
+        // Garder trace de la meilleure solution
+        if (population[0]->fitness > best_fitness)
+        {
+            best_fitness = population[0]->fitness;
+            if (best_solution)
+                free_chromosome(best_solution);
+            best_solution = clone_chromosome(population[0]);
+
+            printf("Gén %d: Nouvelle meilleure solution (Fitness: %.4f, Coût: %.2f)\n",
+                   gen, best_fitness, best_solution->total_cost);
+        }
+
+        // Nouvelle génération (elites + nouveaux)
+        Chromosome *new_population[POPULATION_SIZE];
+
+        // Élitisme (garder les meilleurs)
+        for (int i = 0; i < ELITE_COUNT; i++)
+        {
+            new_population[i] = clone_chromosome(population[i]);
+        }
+
+        // Remplissage par croisement/mutation
+        for (int i = ELITE_COUNT; i < POPULATION_SIZE; i++)
+        {
+            // Sélection par tournoi
+            int parent1_idx = rand() % (POPULATION_SIZE / 2);
+            int parent2_idx = rand() % (POPULATION_SIZE / 2);
+
+            Chromosome *child = create_chromosome(graph, 5);
+            crossover(population[parent1_idx], population[parent2_idx], child, graph);
+            mutate(child, MUTATION_RATE, graph);
+            evaluate_fitness(child, graph, period, season);
+
+            new_population[i] = child;
+        }
+
+        // Remplacement population
+        for (int i = 0; i < POPULATION_SIZE; i++)
+        {
+            free_chromosome(population[i]);
+            population[i] = new_population[i];
+        }
+    }
+
+    // 5. Résultats finaux
+    printf("\n=== OPTIMISATION TERMINÉE ===\n");
+    printf("Meilleure solution trouvée :\n");
+    print_chromosome(best_solution, graph);
+
+    printf("\nDétails :\n");
+    printf("- Fitness finale : %.4f\n", best_solution->fitness);
+    printf("- Coût total : %.2f\n", best_solution->total_cost);
+    printf("- Nombre de violations : %d\n", best_solution->violations);
+    printf("- Nombre de véhicules utilisés : %d\n", best_solution->vehicle_count);
+
+    printf("\nSolution sauvegardée dans 'optimized_routes.json'\n");
+
+    // Nettoyage
+    for (int i = 0; i < POPULATION_SIZE; i++)
+    {
+        free_chromosome(population[i]);
+    }
+    free_chromosome(best_solution);

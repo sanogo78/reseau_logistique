@@ -11,11 +11,11 @@ ShortestPaths *findShortestPath(Graph *graph)
 
     // Allocation de la matrice des distances
     float **dist = (float **)malloc(V * sizeof(float *));
-    float **pred = (float **)malloc(V * sizeof(float *));
+    int **pred = (int **)malloc(V * sizeof(int *));
     for (int i = 0; i < V; i++)
     {
         dist[i] = (float *)malloc(V * sizeof(float *));
-        pred[i] = (float *)malloc(V * sizeof(float *));
+        pred[i] = (int *)malloc(V * sizeof(int *));
 
         for (int j = 0; j < V; j++)
         {
