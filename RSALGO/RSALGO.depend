@@ -161,7 +161,7 @@
 1743799590 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\bellman-ford\bellman.h
 	"../graph/graph.h"
 
-1743802175 source:c:\users\servi\desktop\reseau_logistique\rsalgo\cjson.c
+1744477708 source:c:\users\servi\desktop\reseau_logistique\rsalgo\cjson.c
 	<string.h>
 	<stdio.h>
 	<math.h>
@@ -172,10 +172,10 @@
 	<locale.h>
 	"cJSON.h"
 
-1743802178 c:\users\servi\desktop\reseau_logistique\rsalgo\cjson.h
+1744477708 c:\users\servi\desktop\reseau_logistique\rsalgo\cjson.h
 	<stddef.h>
 
-1743802114 source:c:\users\servi\desktop\reseau_logistique\rsalgo\floyd\floyd.c
+1744477708 source:c:\users\servi\desktop\reseau_logistique\rsalgo\floyd\floyd.c
 	"floyd.h"
 	<stdlib.h>
 	<stdio.h>
@@ -183,28 +183,28 @@
 	<limits.h>
 	"../graph/graph.h"
 
-1743802117 c:\users\servi\desktop\reseau_logistique\rsalgo\floyd\floyd.h
+1744477708 c:\users\servi\desktop\reseau_logistique\rsalgo\floyd\floyd.h
 	"../graph/graph.h"
 
-1743802128 c:\users\servi\desktop\reseau_logistique\rsalgo\graph\graph.h
+1744494531 c:\users\servi\desktop\reseau_logistique\rsalgo\graph\graph.h
 	<stdbool.h>
 
-1743802122 source:c:\users\servi\desktop\reseau_logistique\rsalgo\graph\graph.c
+1744494575 source:c:\users\servi\desktop\reseau_logistique\rsalgo\graph\graph.c
 	"graph.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1743802135 source:c:\users\servi\desktop\reseau_logistique\rsalgo\json\json_utils.c
+1744477708 source:c:\users\servi\desktop\reseau_logistique\rsalgo\json\json_utils.c
 	"json_utils.h"
 	"../cJSON.h"
 	<stdio.h>
 	<stdlib.h>
 
-1743802138 c:\users\servi\desktop\reseau_logistique\rsalgo\json\json_utils.h
+1744477708 c:\users\servi\desktop\reseau_logistique\rsalgo\json\json_utils.h
 	"../graph/graph.h"
 
-1743811399 source:c:\users\servi\desktop\reseau_logistique\rsalgo\main.c
+1744692448 source:c:\users\servi\desktop\reseau_logistique\rsalgo\main.c
 	<stdio.h>
 	<stdlib.h>
 	"graph/graph.h"
@@ -215,53 +215,54 @@
 	"bellman-ford/bellman.h"
 	"TSP/tsp.h"
 	"multi_day_planner/multi_day_planner.h"
+	"greedy/greedy.h"
 
-1743802171 c:\users\servi\desktop\reseau_logistique\rsalgo\traversal\traversal.h
+1744477708 c:\users\servi\desktop\reseau_logistique\rsalgo\traversal\traversal.h
 	"../graph/graph.h"
 
-1743802182 c:\users\servi\desktop\reseau_logistique\rsalgo\temp\temp.h
+1744477708 c:\users\servi\desktop\reseau_logistique\rsalgo\temp\temp.h
 	<stdbool.h>
 	"../graph/graph.h"
 
-1743802109 c:\users\servi\desktop\reseau_logistique\rsalgo\bellman-ford\bellman.h
+1744477708 c:\users\servi\desktop\reseau_logistique\rsalgo\bellman-ford\bellman.h
 	"../graph/graph.h"
 
-1743802190 source:c:\users\servi\desktop\reseau_logistique\rsalgo\queue\queue.c
+1744477708 source:c:\users\servi\desktop\reseau_logistique\rsalgo\queue\queue.c
 	"queue.h"
 	<stdlib.h>
 	<stdbool.h>
 
-1743802193 c:\users\servi\desktop\reseau_logistique\rsalgo\queue\queue.h
+1744477708 c:\users\servi\desktop\reseau_logistique\rsalgo\queue\queue.h
 	<stdbool.h>
 
-1743802185 source:c:\users\servi\desktop\reseau_logistique\rsalgo\temp\temps.c
+1744477708 source:c:\users\servi\desktop\reseau_logistique\rsalgo\temp\temps.c
 	"../graph/graph.h"
 	<time.h>
 	<math.h>
 
-1743802168 source:c:\users\servi\desktop\reseau_logistique\rsalgo\traversal\traversal.c
+1744477708 source:c:\users\servi\desktop\reseau_logistique\rsalgo\traversal\traversal.c
 	"traversal.h"
 	"../queue/queue.h"
 	<stdlib.h>
 	<stdbool.h>
 
-1743802106 source:c:\users\servi\desktop\reseau_logistique\rsalgo\bellman-ford\bellman.c
+1744477708 source:c:\users\servi\desktop\reseau_logistique\rsalgo\bellman-ford\bellman.c
 	<stdio.h>
 	<stdlib.h>
 	<float.h>
 	"../graph/graph.h"
 	"bellman.h"
 
-1743810465 source:c:\users\servi\desktop\reseau_logistique\rsalgo\tsp\tsp.c
+1744477708 source:c:\users\servi\desktop\reseau_logistique\rsalgo\tsp\tsp.c
 	"tsp.h"
 	<stdlib.h>
 	<stdio.h>
 	<float.h>
 	<stdbool.h>
 
-1743810471 c:\users\servi\desktop\reseau_logistique\rsalgo\tsp\tsp.h
+1744477708 c:\users\servi\desktop\reseau_logistique\rsalgo\tsp\tsp.h
 
-1743810694 source:c:\users\servi\desktop\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.c
+1744477708 source:c:\users\servi\desktop\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.c
 	"multi_day_planner.h"
 	<stdlib.h>
 	<stdio.h>
@@ -270,5 +271,16 @@
 	<string.h>
 	<math.h>
 
-1743810171 c:\users\servi\desktop\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.h
+1744477708 c:\users\servi\desktop\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.h
+
+1744629237 c:\users\servi\desktop\reseau_logistique\rsalgo\greedy\greedy.h
+	"../graph/graph.h"
+
+1744634261 source:c:\users\servi\desktop\reseau_logistique\rsalgo\greedy\greedy.c
+	"greedy.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<float.h>
 

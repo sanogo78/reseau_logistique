@@ -8,6 +8,7 @@
 #include "bellman-ford/bellman.h"
 #include "TSP/tsp.h"
 #include "multi_day_planner/multi_day_planner.h"
+#include "greedy/greedy.h"
 
 // Fonction principale
 int main()
@@ -114,12 +115,6 @@ int main()
         freeBellmanResult(br);
     }
 
-    // Sauvegarder l'état du réseau
-    saveNetworkState(graph, "saveNetwork.json");
-
-    free(graph->array);
-    free(graph->nodes);
-    free(graph);
 
     //partie TSP
              freeShortestPaths(sp);
@@ -127,14 +122,16 @@ int main()
             printTSPResult(tour);
             freeTSPResult(tour);
 
-            //programmation dynamique
 
-            int depot = 0; // ex: ville de départ
-int maxLivraisonsParJour = 3;
-MultiDayPlan *mdp = planMultiDayDeliveries(sp->distance, graph->V, depot, maxLivraisonsParJour);
-printMultiDayPlan(mdp);
-freeMultiDayPlan(mdp);
+//Gloutonne approche
+testGreedyApproach(graph);
 
+    // Sauvegarder l'état du réseau
+    saveNetworkState(graph, "saveNetwork.json");
+
+    free(graph->array);
+    free(graph->nodes);
+    free(graph);
 
     return 0;
 }
