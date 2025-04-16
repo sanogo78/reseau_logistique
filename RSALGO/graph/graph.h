@@ -52,10 +52,9 @@ typedef struct Node
     char *type;           // Type du noeud (ex. "hub")
     float coordinates[2]; // Coordonnees [latitude, longitude]
     int capacity;         // Capacite du noeud (ex. capacité de traitement, stockage)
-    // Contraintes temporelles (VRPTW)
-    float earliestTime; // Heure d'ouverture (ex: 8.0 pour 8h00)
-    float latestTime;   // Heure de fermeture (ex: 18.0 pour 18h00)
-    float serviceTime;  // Durée de service (ex: 0.5 pour 30min)
+    float earliestTime;   // Heure d'ouverture (ex: 8.0 pour 8h00)
+    float latestTime;     // Heure de fermeture (ex: 18.0 pour 18h00)
+    float serviceTime;    // Durée de service (ex: 0.5 pour 30min)
 } Node;
 
 // Structure pour un noeud de la liste d'adjacence
@@ -79,7 +78,7 @@ typedef struct Graph
     int V;            // Nombre de sommets
     AdjList *array;   // Tableau de listes d'adjacence
     Node *nodes;      // Tableau de noeuds avec informations détaillées
-    float **distance; // Matrice des distances entre les nœuds
+    float **distance; // Matrice des distances entre les noeuds
 } Graph;
 
 // Fonctions de base du graphe

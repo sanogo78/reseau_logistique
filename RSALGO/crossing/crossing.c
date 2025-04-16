@@ -16,8 +16,8 @@ bool isGeneInSegment(const Chromosome *child, int start, int end, int gene)
 }
 
 // Opérateur de croisement OX pour le VRP
-void crossoverOX(const Chromosome *parent1, const Chromosome *parent2, Chromosome *child,
-                 Graph *graph, Season season, TimePeriod timePeriod)
+void crossover(const Chromosome *parent1, const Chromosome *parent2, Chromosome *child,
+               Graph *graph, Season season, TimePeriod timePeriod)
 {
     int size = parent1->numNodes;
     int start = rand() % size;
