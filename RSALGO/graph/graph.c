@@ -32,7 +32,6 @@ Graph *createGraph(int V)
             }
         }
     }
-
     return graph;
 }
 
@@ -74,7 +73,6 @@ void addEdge(Graph *graph, int src, int dest, EdgeAttr attr)
 // Fonction pour supprimer une arête entre src et dest
 void removeEdge(Graph *graph, int src, int dest)
 {
-    // Supprimer l'arête dans la liste d'adjacence de src
     AdjListNode *temp = graph->array[src].head;
     AdjListNode *prev = NULL;
     while (temp != NULL && temp->dest != dest)
@@ -94,8 +92,6 @@ void removeEdge(Graph *graph, int src, int dest)
         }
         free(temp);
     }
-
-    // Supprimer l'arête dans la liste d'adjacence de dest (graphe non orienté)
     temp = graph->array[dest].head;
     prev = NULL;
     while (temp != NULL && temp->dest != src)
