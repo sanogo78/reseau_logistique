@@ -3,33 +3,23 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-// Fonction pour le parcours DFS
 int *depthFirstSearch(Graph *graph, int startNode, int *tree)
 {
-    // Initialisation
     NodeColor *colors = (NodeColor *)malloc(graph->V * sizeof(NodeColor));
     int *pi = (int *)malloc(graph->V * sizeof(int));
-
-    // Initialiser tous les nœuds comme non visités et sans prédécesseur
     for (int i = 0; i < graph->V; i++)
     {
         colors[i] = WHITE;
         pi[i] = -1; // -1 signifie pas de prédécesseur
     }
-
-    // Créer une pile (simulée avec un tableau)
     int *stack = (int *)malloc(graph->V * sizeof(int));
     int stackTop = -1; // Indice du sommet de la pile
-
-    // Empiler le nœud de départ et le colorer en gris
     stack[++stackTop] = startNode;
     colors[startNode] = GRAY;
 
     while (stackTop >= 0)
     {                                      // Tant que la pile n'est pas vide
-        int currentNode = stack[stackTop]; // Prendre le nœud en haut de la pile
-
-        // Trouver le premier successeur blanc
+        int currentNode = stack[stackTop]; // Prendre le noeud en haut de la pile
         AdjListNode *neighbor = graph->array[currentNode].head;
         bool foundWhite = false;
 
@@ -38,16 +28,12 @@ int *depthFirstSearch(Graph *graph, int startNode, int *tree)
             if (colors[neighbor->dest] == WHITE)
             {
                 foundWhite = true;
-
-                // Empiler le voisin blanc
                 stack[++stackTop] = neighbor->dest;
                 colors[neighbor->dest] = GRAY;
                 pi[neighbor->dest] = currentNode;
             }
             neighbor = neighbor->next;
         }
-
-        // Si aucun voisin blanc n'a été trouvé, dépiler
         if (!foundWhite)
         {
             stackTop--; // Dépiler
@@ -91,43 +77,33 @@ void printDFSTree(int *pi, int V, Node *nodes)
 // Fonction pour le parcours BFS
 int *breadthFirstSearch(Graph *graph, int startNode, int *tree)
 {
-    // Initialisation
     NodeColor *colors = (NodeColor *)malloc(graph->V * sizeof(NodeColor));
     int *pi = (int *)malloc(graph->V * sizeof(int));
 
-    // Initialiser tous les nœuds comme non visités et sans prédécesseur
     for (int i = 0; i < graph->V; i++)
     {
         colors[i] = WHITE;
         pi[i] = -1; // -1 signifie pas de prédécesseur
     }
-
-    // Créer une file
     Queue *queue = createQueue(graph->V);
-
-    // Ajouter le nœud de départ à la file et le colorer en gris
     enqueue(queue, startNode);
     colors[startNode] = GRAY;
 
     while (!isEmpty(queue))
-    {                                     // Tant que la file n'est pas vide
-        int currentNode = dequeue(queue); // Prendre le nœud en tête de file
+    {
+        int currentNode = dequeue(queue);
 
-        // Parcourir tous les voisins du nœud courant
         AdjListNode *neighbor = graph->array[currentNode].head;
         while (neighbor != NULL)
         {
             if (colors[neighbor->dest] == WHITE)
             {
-                // Ajouter le voisin blanc à la file et le colorer en gris
                 enqueue(queue, neighbor->dest);
                 colors[neighbor->dest] = GRAY;
                 pi[neighbor->dest] = currentNode;
             }
             neighbor = neighbor->next;
         }
-
-        // Marquer le nœud courant comme visité
         colors[currentNode] = BLACK;
     }
 

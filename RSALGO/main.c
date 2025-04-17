@@ -5,7 +5,7 @@ int main()
 {
     srand(time(NULL)); // Seed pour le mélange aléatoire
     // Création du graphe à partir du fichier JSON
-    Graph *graph = createGraphFromJSON("parseur.json");
+    Graph *graph = parseurFromJSON("parseur.json");
     if (!graph)
     {
         fprintf(stderr, "Erreur lors de la creation du graphe\n");
@@ -170,7 +170,7 @@ int main()
     Chromosome *child = createRandomChromosome(graph->V); // Enfant vide
 
     // Appliquer le croisement
-    crossoverOX(parent1, parent2, child, graph, season, timer);
+    crossover(parent1, parent2, child, graph, season, timer);
 
     printf("Parent 1 : ");
     printChromosome(parent1, graph);

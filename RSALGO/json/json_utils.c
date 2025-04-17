@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-Graph *createGraphFromJSON(const char *filename)
+Graph *parseurFromJSON(const char *filename)
 {
     FILE *file = fopen(filename, "r");
     if (!file)
