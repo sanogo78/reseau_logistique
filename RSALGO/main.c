@@ -238,21 +238,26 @@ int main()
     printChromosome(best, graph);
     printf("Fitness: %.2f\n", evaluateFitness(best, graph, season, timer));
 
-    // 4. Exemple d'évolution (1 génération)
-    printf("\n=== APRES 1 GENERATION ===\n");
-    Chromosome *newPopulation[populationSize];
+    // 4. exemple d'évolution (1 generation avec élitise + tournoi)
+    printf("\n==== APRES GENERATION (ELITISME + TOURNOI=====\n");
 
-    // Élitisme: conserver le meilleur
+    Chromosome *newPopulation[populationSize];
+    //Elitisme: on copie le meilleur directement
     newPopulation[0] = copyChromosome(best);
-    // Croisement et mutation
+
+    // generation des autres individus via sélection par tournoi
     for (int i = 1; i < populationSize; i++)
     {
-        Chromosome *child = createRandomChromosome(graph->V);
+        //selection des parents par tournoi
+        Chromosome *parent1 = selectParent(population, populationSize);
+        Chromosome *parent2 = selectParent(population, populationSize);
+        Chromosome *child = copyChromosome(parent1);
 
+        // Mutation adaptative
         adaptiveMutation(child, graph, season, timer);
         newPopulation[i] = child;
     }
-
+    
     // Évaluation de la nouvelle population
     for (int i = 0; i < populationSize; i++)
     {
