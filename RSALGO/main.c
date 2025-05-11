@@ -1,8 +1,9 @@
 #include "all_include_main.h"
-
 // Fonction principale
 int main()
 {
+    int nodeA;
+    int nodeB;
     srand(time(NULL)); // Seed pour le mélange aléatoire
     // Création du graphe à partir du fichier JSON
     Graph *graph = parseurFromJSON("parseur.json");
@@ -11,20 +12,55 @@ int main()
         fprintf(stderr, "Erreur lors de la creation du graphe\n");
         return 1;
     }
-    int nodeA = 0, nodeB = 1;
+
+    printDepartDestination(graph);
+    do
+    {
+        printf("Choisir un lieu de depart (entre 0 et %d) : ", graph->V - 1);
+        if (scanf("%d", &nodeA) != 1)
+        {
+            fprintf(stderr, "Entree invalide.\n");
+            // Vider le buffer en cas d'entrée non entière
+            while (getchar() != '\n')
+                ;
+            nodeA = -1; // force à recommencer
+        }
+    } while (nodeA < 0 || nodeA >= graph->V);
+
+    do
+    {
+        printf("Choisir un lieu de destination (entre 0 et %d) : ", graph->V - 1);
+        if (scanf("%d", &nodeB) != 1)
+        {
+            fprintf(stderr, "Entree invalide.\n");
+            // Vider le buffer en cas d'entrée non entière
+            while (getchar() != '\n')
+                ;
+            nodeB = -1; // force à recommencer
+        }
+    } while (nodeB < 0 || nodeB >= graph->V);
+
+    time_t new_date = time(NULL);
+    struct tm *pTime = localtime(&new_date);
+
+    char buffer[100];
+    strftime(buffer, sizeof(buffer), "%d/%m/%Y %H:%M:%S", pTime);
+    printf("SCENARIO : Jour normale\n");
+    printf("DATE : %s\n\n", buffer);
+
     // Afficher le graphe
     printf("Graphe charge depuis le fichier parseur.js:\n");
     printGraph(graph);
     printAdjList(graph);
 
-    // Exécuter DFS à partir du nœud 0
+    // Exécuter DFS à partir du nœud nodeA
     printf("\n // Parcours DFS\n");
     int *pi_dfs = depthFirstSearch(graph, nodeA, NULL);
     printDFSTree(pi_dfs, graph->V, graph->nodes);
     free(pi_dfs);
 
     printf("\n //Parcours BFS\n");
-    // Exécuter BFS à partir du nœud 0
+    // Exécuter BFS à partir du nœud nodeA
     int *pi_bfs = breadthFirstSearch(graph, 0, NULL);
     printBFSTree(pi_bfs, graph->V, graph->nodes);
     free(pi_bfs);
@@ -238,17 +274,22 @@ int main()
     printChromosome(best, graph);
     printf("Fitness: %.2f\n", evaluateFitness(best, graph, season, timer));
 
-    // 4. Exemple d'évolution (1 génération)
-    printf("\n=== APRES 1 GENERATION ===\n");
-    Chromosome *newPopulation[populationSize];
+    // 4. exemple d'évolution (1 generation avec élitise + tournoi)
+    printf("\n==== APRES GENERATION (ELITISME + TOURNOI=====\n");
 
-    // Élitisme: conserver le meilleur
+    Chromosome *newPopulation[populationSize];
+    // Elitisme: on copie le meilleur directement
     newPopulation[0] = copyChromosome(best);
-    // Croisement et mutation
+
+    // generation des autres individus via sélection par tournoi
     for (int i = 1; i < populationSize; i++)
     {
-        Chromosome *child = createRandomChromosome(graph->V);
+        // selection des parents par tournoi
+        Chromosome *parent1 = selectParent(population, populationSize);
+        Chromosome *parent2 = selectParent(population, populationSize);
+        Chromosome *child = copyChromosome(parent1);
 
+        // Mutation adaptative
         adaptiveMutation(child, graph, season, timer);
         newPopulation[i] = child;
     }

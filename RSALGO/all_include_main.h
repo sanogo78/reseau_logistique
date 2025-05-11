@@ -16,3 +16,6 @@
 #include "mutation/mutation.h"
 #include "fitness/fitness.h"
 #include "greedy/greedy.h"
+#include "time.h"
+#include "limits.h"
+#include "math.h"

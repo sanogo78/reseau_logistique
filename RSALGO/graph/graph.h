@@ -90,6 +90,7 @@ void removeEdge(Graph *graph, int src, int dest);
 void removeNode(Graph *graph, int nodeIndex);
 void printNodeInfo(Node node);
 void printGraph(Graph *graph);
+void printDepartDestination(Graph *graph);
 void printAdjList(Graph *graph);
 EdgeAttr getEdgeAttr(Graph *graph, int from, int to);
 

@@ -88,7 +88,7 @@
 	<locale.h>
 	"cJSON.h"
 
-1744745022 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\cjson.h
+1744914336 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\cjson.h
 	<stddef.h>
 
 1744744879 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.c
@@ -102,7 +102,7 @@
 1744744881 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.h
 	"../graph/graph.h"
 
-1744841779 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.h
+1744913975 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.h
 	<stdbool.h>
 
 1744744884 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.c
@@ -141,7 +141,7 @@
 1744810679 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\main.c
 	"all_include_main.h"
 
-1744744945 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\temp\temp.h
+1744914028 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\temp\temp.h
 	<stdbool.h>
 	"../graph/graph.h"
 
@@ -154,7 +154,7 @@
 1744744851 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\bellman-ford\bellman.h
 	"../graph/graph.h"
 
-1744743058 source:c:\users\servi\desktop\reseau_logistique\rsalgo\cjson.c
+1744913448 source:c:\users\servi\desktop\reseau_logistique\rsalgo\cjson.c
 	<string.h>
 	<stdio.h>
 	<math.h>
@@ -165,10 +165,10 @@
 	<locale.h>
 	"cJSON.h"
 
-1744743066 c:\users\servi\desktop\reseau_logistique\rsalgo\cjson.h
+1744913451 c:\users\servi\desktop\reseau_logistique\rsalgo\cjson.h
 	<stddef.h>
 
-1744742957 source:c:\users\servi\desktop\reseau_logistique\rsalgo\floyd\floyd.c
+1744913364 source:c:\users\servi\desktop\reseau_logistique\rsalgo\floyd\floyd.c
 	"floyd.h"
 	<stdlib.h>
 	<stdio.h>
@@ -176,78 +176,78 @@
 	<limits.h>
 	"../graph/graph.h"
 
-1744742965 c:\users\servi\desktop\reseau_logistique\rsalgo\floyd\floyd.h
+1744913367 c:\users\servi\desktop\reseau_logistique\rsalgo\floyd\floyd.h
 	"../graph/graph.h"
 
-1744742978 c:\users\servi\desktop\reseau_logistique\rsalgo\graph\graph.h
+1744913376 c:\users\servi\desktop\reseau_logistique\rsalgo\graph\graph.h
 	<stdbool.h>
 
-1744742974 source:c:\users\servi\desktop\reseau_logistique\rsalgo\graph\graph.c
+1744913373 source:c:\users\servi\desktop\reseau_logistique\rsalgo\graph\graph.c
 	"graph.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<float.h>
 
-1744743783 source:c:\users\servi\desktop\reseau_logistique\rsalgo\json\json_utils.c
+1744913386 source:c:\users\servi\desktop\reseau_logistique\rsalgo\json\json_utils.c
 	"json_utils.h"
 	"../cJSON.h"
 	<stdio.h>
 	<stdlib.h>
 
-1744743787 c:\users\servi\desktop\reseau_logistique\rsalgo\json\json_utils.h
+1744913390 c:\users\servi\desktop\reseau_logistique\rsalgo\json\json_utils.h
 	"../graph/graph.h"
 
-1744742624 source:c:\users\servi\desktop\reseau_logistique\rsalgo\main.c
+1744913455 source:c:\users\servi\desktop\reseau_logistique\rsalgo\main.c
 	"all_include_main.h"
 
-1744743817 c:\users\servi\desktop\reseau_logistique\rsalgo\traversal\traversal.h
+1744913434 c:\users\servi\desktop\reseau_logistique\rsalgo\traversal\traversal.h
 	"../graph/graph.h"
 
-1744743022 c:\users\servi\desktop\reseau_logistique\rsalgo\temp\temp.h
+1744913424 c:\users\servi\desktop\reseau_logistique\rsalgo\temp\temp.h
 	<stdbool.h>
 	"../graph/graph.h"
 
-1744743091 c:\users\servi\desktop\reseau_logistique\rsalgo\bellman-ford\bellman.h
+1744913338 c:\users\servi\desktop\reseau_logistique\rsalgo\bellman-ford\bellman.h
 	"../graph/graph.h"
 
-1744743759 source:c:\users\servi\desktop\reseau_logistique\rsalgo\queue\queue.c
+1744913410 source:c:\users\servi\desktop\reseau_logistique\rsalgo\queue\queue.c
 	"queue.h"
 	<stdlib.h>
 	<stdbool.h>
 
-1744743765 c:\users\servi\desktop\reseau_logistique\rsalgo\queue\queue.h
+1744913413 c:\users\servi\desktop\reseau_logistique\rsalgo\queue\queue.h
 	<stdbool.h>
 
-1744743027 source:c:\users\servi\desktop\reseau_logistique\rsalgo\temp\temps.c
+1744913427 source:c:\users\servi\desktop\reseau_logistique\rsalgo\temp\temps.c
 	"../graph/graph.h"
 	<time.h>
 	"temp.h"
 	<math.h>
 	<stdio.h>
 
-1744743812 source:c:\users\servi\desktop\reseau_logistique\rsalgo\traversal\traversal.c
+1744913431 source:c:\users\servi\desktop\reseau_logistique\rsalgo\traversal\traversal.c
 	"traversal.h"
 	"../queue/queue.h"
 	<stdlib.h>
 	<stdbool.h>
 
-1744743088 source:c:\users\servi\desktop\reseau_logistique\rsalgo\bellman-ford\bellman.c
+1744913334 source:c:\users\servi\desktop\reseau_logistique\rsalgo\bellman-ford\bellman.c
 	"bellman.h"
 	<stdlib.h>
 	<stdio.h>
 	<float.h>
 
-1744743046 source:c:\users\servi\desktop\reseau_logistique\rsalgo\tsp\tsp.c
+1744913439 source:c:\users\servi\desktop\reseau_logistique\rsalgo\tsp\tsp.c
 	"tsp.h"
 	<stdlib.h>
 	<stdio.h>
 	<float.h>
 	<stdbool.h>
 
-1744743050 c:\users\servi\desktop\reseau_logistique\rsalgo\tsp\tsp.h
+1744913441 c:\users\servi\desktop\reseau_logistique\rsalgo\tsp\tsp.h
 
-1744743794 source:c:\users\servi\desktop\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.c
+1744913396 source:c:\users\servi\desktop\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.c
 	"multi_day_planner.h"
 	<stdlib.h>
 	<stdio.h>
@@ -257,15 +257,15 @@
 	<math.h>
 	<limits.h>
 
-1744743797 c:\users\servi\desktop\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.h
+1744913399 c:\users\servi\desktop\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.h
 	"../graph/graph.h"
 	"../temp/temp.h"
 	"../report/report.h"
 
-1744742990 c:\users\servi\desktop\reseau_logistique\rsalgo\greedy\greedy.h
+1744913383 c:\users\servi\desktop\reseau_logistique\rsalgo\greedy\greedy.h
 	"../graph/graph.h"
 
-1744742987 source:c:\users\servi\desktop\reseau_logistique\rsalgo\greedy\greedy.c
+1744913380 source:c:\users\servi\desktop\reseau_logistique\rsalgo\greedy\greedy.c
 	"greedy.h"
 	<stdio.h>
 	<stdlib.h>
@@ -304,7 +304,7 @@
 	<math.h>
 	<limits.h>
 
-1744744859 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\chromosome\chromosome.h
+1744913947 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\chromosome\chromosome.h
 	"../graph/graph.h"
 
 1744744856 source:c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\chromosome\chromosome.c
@@ -351,7 +351,7 @@
 	<stdbool.h>
 	"crossing.h"
 
-1744744916 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\mutation\mutation.h
+1744914008 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\mutation\mutation.h
 	"../graph/graph.h"
 	"../chromosome/chromosome.h"
 
@@ -365,39 +365,39 @@
 	<stdbool.h>
 	"fitness.h"
 
-1744744875 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\fitness\fitness.h
+1744913963 c:\users\atchu\favorites\master\m1\algo\reseau_logistique\rsalgo\fitness\fitness.h
 	"../graph/graph.h"
 	"../chromosome/chromosome.h"
 
-1744742912 source:c:\users\servi\desktop\reseau_logistique\rsalgo\chromosome\chromosome.c
+1744913342 source:c:\users\servi\desktop\reseau_logistique\rsalgo\chromosome\chromosome.c
 	"chromosome.h"
 	<stdlib.h>
 	<stdio.h>
 	<time.h>
 	<stdbool.h>
 
-1744742917 c:\users\servi\desktop\reseau_logistique\rsalgo\chromosome\chromosome.h
+1744913345 c:\users\servi\desktop\reseau_logistique\rsalgo\chromosome\chromosome.h
 	"../graph/graph.h"
 
-1744742923 source:c:\users\servi\desktop\reseau_logistique\rsalgo\crossing\crossing.c
+1744913348 source:c:\users\servi\desktop\reseau_logistique\rsalgo\crossing\crossing.c
 	<stdlib.h>
 	<stdbool.h>
 	"crossing.h"
 
-1744742939 c:\users\servi\desktop\reseau_logistique\rsalgo\crossing\crossing.h
+1744913351 c:\users\servi\desktop\reseau_logistique\rsalgo\crossing\crossing.h
 	"../graph/graph.h"
 	"../chromosome/chromosome.h"
 
-1744742946 source:c:\users\servi\desktop\reseau_logistique\rsalgo\fitness\fitness.c
+1744913357 source:c:\users\servi\desktop\reseau_logistique\rsalgo\fitness\fitness.c
 	<stdlib.h>
 	<stdbool.h>
 	"fitness.h"
 
-1744742950 c:\users\servi\desktop\reseau_logistique\rsalgo\fitness\fitness.h
+1744913360 c:\users\servi\desktop\reseau_logistique\rsalgo\fitness\fitness.h
 	"../graph/graph.h"
 	"../chromosome/chromosome.h"
 
-1744742873 c:\users\servi\desktop\reseau_logistique\rsalgo\all_include_main.h
+1744913445 c:\users\servi\desktop\reseau_logistique\rsalgo\all_include_main.h
 	<stdio.h>
 	<stdlib.h>
 	"graph/graph.h"
@@ -417,19 +417,19 @@
 	"fitness/fitness.h"
 	"greedy/greedy.h"
 
-1744743014 c:\users\servi\desktop\reseau_logistique\rsalgo\report\report.h
+1744913418 c:\users\servi\desktop\reseau_logistique\rsalgo\report\report.h
 	"../graph/graph.h"
 
-1744743001 c:\users\servi\desktop\reseau_logistique\rsalgo\mutation\mutation.h
+1744913404 c:\users\servi\desktop\reseau_logistique\rsalgo\mutation\mutation.h
 	"../graph/graph.h"
 	"../chromosome/chromosome.h"
 
-1744742998 source:c:\users\servi\desktop\reseau_logistique\rsalgo\mutation\mutation.c
+1744913401 source:c:\users\servi\desktop\reseau_logistique\rsalgo\mutation\mutation.c
 	<stdlib.h>
 	<stdbool.h>
 	"mutation.h"
 
-1744743010 source:c:\users\servi\desktop\reseau_logistique\rsalgo\report\report.c
+1744913415 source:c:\users\servi\desktop\reseau_logistique\rsalgo\report\report.c
 	"report.h"
 	<stdio.h>
 	<string.h>
@@ -444,4 +444,188 @@
 	<string.h>
 	<limits.h>
 	<float.h>
+
+1746833201 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\bellman-ford\bellman.c
+	"bellman.h"
+	<stdlib.h>
+	<stdio.h>
+	<float.h>
+
+1746833204 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\bellman-ford\bellman.h
+	"../graph/graph.h"
+
+1746898074 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.h
+	<stdbool.h>
+
+1746833208 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\chromosome\chromosome.c
+	"chromosome.h"
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<stdbool.h>
+
+1746833211 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\chromosome\chromosome.h
+	"../graph/graph.h"
+
+1745498292 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<limits.h>
+	<ctype.h>
+	<float.h>
+	<locale.h>
+	"cJSON.h"
+
+1745498294 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\cjson.h
+	<stddef.h>
+
+1746833215 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\crossing\crossing.c
+	<stdlib.h>
+	<stdbool.h>
+	"crossing.h"
+
+1746833218 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\crossing\crossing.h
+	"../graph/graph.h"
+	"../chromosome/chromosome.h"
+
+1746833222 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\fitness\fitness.c
+	<stdlib.h>
+	<stdbool.h>
+	"fitness.h"
+
+1746833225 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\fitness\fitness.h
+	"../graph/graph.h"
+	"../chromosome/chromosome.h"
+
+1746833232 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.c
+	"floyd.h"
+	<stdlib.h>
+	<stdio.h>
+	<float.h>
+	<limits.h>
+	"../graph/graph.h"
+
+1746833234 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\floyd\floyd.h
+	"../graph/graph.h"
+
+1746898334 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\graph\graph.c
+	"graph.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+
+1746834187 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\greedy\greedy.c
+	"greedy.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<float.h>
+
+1746833247 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\greedy\greedy.h
+	"../graph/graph.h"
+
+1746833251 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\json\json_utils.c
+	"json_utils.h"
+	"../cJSON.h"
+	<stdio.h>
+	<stdlib.h>
+
+1746833254 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\json\json_utils.h
+	"../graph/graph.h"
+
+1746833771 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\main.c
+	"all_include_main.h"
+
+1746833310 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\all_include_main.h
+	<stdio.h>
+	<stdlib.h>
+	"graph/graph.h"
+	"traversal/traversal.h"
+	"json/json_utils.h"
+	"floyd/floyd.h"
+	"bellman-ford/bellman.h"
+	"TSP/tsp.h"
+	"multi_day_planner/multi_day_planner.h"
+	<float.h>
+	"temp/temp.h"
+	"report/report.h"
+	<string.h>
+	"chromosome/chromosome.h"
+	"crossing/crossing.h"
+	"mutation/mutation.h"
+	"fitness/fitness.h"
+	"greedy/greedy.h"
+
+1746833301 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\traversal\traversal.h
+	"../graph/graph.h"
+
+1746833307 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\tsp\tsp.h
+
+1746833262 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.h
+	"../graph/graph.h"
+	"../temp/temp.h"
+	"../report/report.h"
+
+1746833293 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\temp\temp.h
+	<stdbool.h>
+	"../graph/graph.h"
+
+1746833289 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\report\report.h
+	"../graph/graph.h"
+
+1746833268 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\mutation\mutation.h
+	"../graph/graph.h"
+	"../chromosome/chromosome.h"
+
+1746833257 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\multi_day_planner\multi_day_planner.c
+	"multi_day_planner.h"
+	<stdlib.h>
+	<stdio.h>
+	<float.h>
+	<stdbool.h>
+	<string.h>
+	<math.h>
+	<limits.h>
+
+1746833265 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\mutation\mutation.c
+	<stdlib.h>
+	<stdbool.h>
+	"mutation.h"
+
+1746833280 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\queue\queue.c
+	"queue.h"
+	<stdlib.h>
+	<stdbool.h>
+
+1746833283 c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\queue\queue.h
+	<stdbool.h>
+
+1746833286 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\report\report.c
+	"report.h"
+	<stdio.h>
+	<string.h>
+
+1746833295 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\temp\temps.c
+	"../graph/graph.h"
+	<time.h>
+	"temp.h"
+	<math.h>
+	<stdio.h>
+
+1746833298 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\traversal\traversal.c
+	"traversal.h"
+	"../queue/queue.h"
+	<stdlib.h>
+	<stdbool.h>
+
+1746833304 source:c:\users\ksoms\favorites\master\m1\algo\reseau_logistique\rsalgo\tsp\tsp.c
+	"tsp.h"
+	<stdlib.h>
+	<stdio.h>
+	<float.h>
+	<stdbool.h>
 

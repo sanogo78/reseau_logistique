@@ -279,7 +279,7 @@ void dynamicRedistribution(DeliveryScenario *scenario, int failed_vehicle_id)
     failed_vehicle->is_operational = false;
     int total_reassigned = 0;
 
-    printf("\nColis a reaffecter : %d\n", failed_vehicle->package_count);
+    printf("\nColis  reaffecter : %d\n", failed_vehicle->package_count);
 
     for (int p = 0; p < failed_vehicle->package_count; p++)
     {

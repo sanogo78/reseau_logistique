@@ -173,6 +173,15 @@ void printGraph(Graph *graph)
     }
 }
 
+// Fonction pour afficher les informations sur la ville de départ graphe avec les informations détaillées des noeuds
+void printDepartDestination(Graph *graph)
+{
+    for (int i = 0; i < graph->V; i++)
+    {
+        printNodeInfo(graph->nodes[i]);
+    }
+}
+
 // Affichage sous forme de liste d'adjacence
 void printAdjList(Graph *graph)
 {
